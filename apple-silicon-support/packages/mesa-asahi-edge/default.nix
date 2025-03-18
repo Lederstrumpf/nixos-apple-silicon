@@ -1,5 +1,5 @@
 { lib
-, fetchFromGitLab
+, fetchurl
 , mesa
 }:
 
@@ -8,13 +8,10 @@
   vulkanDrivers = [ "swrast" "asahi" ];
 }).overrideAttrs (oldAttrs: {
   version = "25.1.0-asahi";
-  src = fetchFromGitLab {
+  src = fetchurl {
     # tracking: https://pagure.io/fedora-asahi/mesa/commits/asahi
-    domain = "gitlab.freedesktop.org";
-    owner = "asahi";
-    repo = "mesa";
-    rev = "asahi-20250221";
-    hash = "sha256-xt49IaylZYoH3LxYu6Uxd+qRrqQfjI6FDeAD8MLeWP8=";
+    url = "https://sources.voidlinux.org/mesa-asahi-25.1.0%2B20250221/mesa-asahi-20250221.tar.gz";
+    sha256 = "sha256-PYxMpIuMxCAFmWi63EUUHWivdi9XysW9tWpq9tftk2k=";
   };
 
   mesonFlags =
